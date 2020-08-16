@@ -1,0 +1,10 @@
+
+.c-input-box {
+    position: relative;
+}
+
+.c-input-box > .input-results {
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+}
