@@ -27,20 +27,22 @@ inBoxTextChange(inputText) {
     // if (inputText.charcode===13) alert ("Enter Pressed !");
 }
 
-addToDo() {
-debugger;
-        const toDoDesc = "hellO";
+addToDo(text) {
+console.log(text);
+    // debugger;
+        // const toDoDesc = "hellO";
         // const toDoDesc = this.inputText;
         // const toDoDesc = this.state.inputText;
         // const toDoDesc = this.props.toDoLine.toDoDesc;
         // const toDoDesc = this.props.toDoLine.toDoLine ; 
         const status = 1;
-        alert (this.inputText);
+        // alert (this.inputText);
 
         this.setState({
-            toDoArr: this.state.toDoArr.concat(new ToDoModel(toDoDesc, status))
+            toDoArr: this.state.toDoArr.concat(new ToDoModel(text, status))
 
         })
+        console.log(this.state.toDoArr);
     }
 
 render() {

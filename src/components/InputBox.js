@@ -33,8 +33,8 @@ class InputBox extends React.Component {
     //     })
     // }
 
-    handleEnterKeyPressed(index) {
-        this.props.resultSelected(index)
+    handleEnterKeyPressed(text) {
+        this.props.resultSelected(text)
         this.setState({
             inputText: "",
             // inputText: this.state.inputText
@@ -45,7 +45,7 @@ class InputBox extends React.Component {
         if (e.key === 'Enter') {
                 this.setState({ inputText: this.state.inputText})
             alert(this.state.inputText);
-        {this.handleEnterKeyPressed()}
+        {this.handleEnterKeyPressed(this.state.inputText)}
         }
       }
 
