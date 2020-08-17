@@ -44,8 +44,8 @@ class InputBox extends React.Component {
     _handleKeyDown = (e) => {
         if (e.key === 'Enter') {
                 this.setState({ inputText: this.state.inputText})
-            // alert(this.state.inputText);
-        // {this.handleEnterKeyPressed()}
+            alert(this.state.inputText);
+        {this.handleEnterKeyPressed()}
         }
       }
 
