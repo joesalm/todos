@@ -27,7 +27,7 @@ inBoxTextChange(inputText) {
     // if (inputText.charcode===13) alert ("Enter Pressed !");
 }
 
-    addToDo() {
+addToDo() {
 debugger;
         const toDoDesc = "hellO";
         // const toDoDesc = this.inputText;
