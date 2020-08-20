@@ -11,9 +11,9 @@ class ToDoPage extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state= {
+        this.state = {
             toDoArr: [], // array of Do things objects
-            status: 1, // status code of toDo array (1=active, 2=not active) 
+            isDone: 1, // isDone code of toDo array (1=Not done, 2=Done) 
             displayStatusCode: 0 // 0=all, 1=Active only, 2=Not Active Only
         }
 
@@ -22,57 +22,52 @@ class ToDoPage extends React.Component {
         this.addToDo = this.addToDo.bind(this);
     }
 
-inBoxTextChange(inputText) {
-    console.log(inputText);
-    // if (inputText.charcode===13) alert ("Enter Pressed !");
-}
+    inBoxTextChange(inputText) {
+        // console.log(inputText);
+        // if (inputText.charcode===13) alert ("Enter Pressed !");
+    }
 
-addToDo(text) {
-console.log(text);
-    // debugger;
-        // const toDoDesc = "hellO";
-        // const toDoDesc = this.inputText;
-        // const toDoDesc = this.state.inputText;
-        // const toDoDesc = this.props.toDoLine.toDoDesc;
-        // const toDoDesc = this.props.toDoLine.toDoLine ; 
-        const status = 1;
+    addToDo(text) {
+        // console.log(text);
+
+        const isDone = 1; // by dedault the status is not done..
         // alert (this.inputText);
 
         this.setState({
-            toDoArr: this.state.toDoArr.concat(new ToDoModel(text, status))
+            toDoArr: this.state.toDoArr.concat(new ToDoModel(text, isDone))
 
         })
-        console.log(this.state.toDoArr);
+        // console.log(this.state.toDoArr);
     }
 
-render() {
-    // this.addToDo();
+    render() {
+        const { toDoArr } = this.state
 
-    const {toDoArr} = this.state
+        // const resultStrings = toDoArr.map(toDo => toDoArr.toDoDesc);
+        const linesToDo = toDoArr.map(toDoLine =>
+            <Col lg={3} md={4} sm={6}>
+                <ToDoLine toDoLine={toDoLine} />
+            </Col>)
 
-    // const resultStrings = toDoArr.map(toDo => toDoArr.toDoDesc);
-    const linesToDo = toDoArr.map(toDoLine => 
-        <Col lg={3} md={4} sm={6}>
-            <ToDoLine toDoLine={toDoLine}/>
-        </Col>)        
-        
         // toDoArr.toDoDesc)
-    return (
-        <div className="p-thingToDo">
+        return (
+            <div className="p-thingToDo">
                 <Container>
-                    Todos
-                    <InputBox placeholderText="fill in something to do" 
-                        inputTextChanged={this.inBoxTextChange} resultSelected={this.addToDo}/>
+                    <div className="input_box_sec" >
+                        Todos
+                        <InputBox placeholderText="fill in something to do"
+                            inputTextChanged={this.inBoxTextChange} resultSelected={this.addToDo} />
+                    </div>
                     <Row>
                         {linesToDo}
                     </Row>
                 </Container>
 
-            {/* {toDoArr} */}
-        </div>
+                {/* {toDoArr} */}
+            </div>
 
-    )
-}
+        )
+    }
 
 
 }

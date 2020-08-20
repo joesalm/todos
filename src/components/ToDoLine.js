@@ -12,7 +12,7 @@ class ToDoLine extends React.Component {
 
         // this.state= {
         //     toDoArr: [], // array of Do things objects
-        //     status: 1, // status code of toDo array (1=active, 2=not active) 
+        //     isDone: 1, // isDone code of toDo array (1=not Done, 2=Done) 
         //     displayStatusCode: 0 // 0=all, 1=Active only, 2=Not Active Only
         // }
 
@@ -21,18 +21,22 @@ class ToDoLine extends React.Component {
     }
 
 
-render() {
-    return (
-        <div className="p-thingToDoSingleLine">
-                <Container>
-                    <Row>
-                        {this.props.toDoLine.toDoDesc}
-                    </Row>
-                </Container>
-        </div>
+    render() {
+        const isChecked = this.props.toDoLine.isDone===2 ? "Checked": "";
+        // const isChecked = "Checked";
+        return (
+            <div className="p-thingToDoSingleLine">
+                {/* <Container>
+                    <Row> */}
 
-    )
-}
+                        <input type="checkbox" defaultChecked={isChecked} />
+                        {this.props.toDoLine.toDoDesc} 
+                    {/* </Row>
+                </Container> */}
+            </div>
+
+        )
+    }
 
 
 }

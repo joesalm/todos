@@ -43,22 +43,24 @@ class InputBox extends React.Component {
 
     _handleKeyDown = (e) => {
         if (e.key === 'Enter') {
-                this.setState({ inputText: this.state.inputText})
-            alert(this.state.inputText);
-        {this.handleEnterKeyPressed(this.state.inputText)}
-        }
-      }
 
-    
+            // next line of setState is not must but i put it anyway.. just in case..
+            this.setState({ inputText: this.state.inputText })
+            // alert(this.state.inputText);
+            { this.handleEnterKeyPressed(this.state.inputText) }
+        }
+    }
+
+
 
     render() {
         // Extracting props and state
-        const { placeholderText, inputTextChanged, resultSelected } = this.props; 
+        const { placeholderText, inputTextChanged, resultSelected } = this.props;
         const { inputText } = this.state;
 
         return (
             <div className="c-input-box">
-                <Form.Control type="search" placeholder={placeholderText} value={inputText} 
+                <Form.Control type="search" placeholder={placeholderText} value={inputText}
                     // onChange={this.handleInputChange} onKeyPress={this._handleKeyDown} />
                     onChange={this.handleInputChange} onKeyPress={this._handleKeyDown} />
             </div>
