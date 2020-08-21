@@ -19,7 +19,8 @@ class ToDoPage extends React.Component {
 
         this.addToDo = this.addToDo.bind(this);
         this.inBoxTextChange = this.inBoxTextChange.bind(this);
-        this.addToDo = this.addToDo.bind(this);
+        this.updateIsDone = this.updateIsDone.bind(this);
+
     }
 
     inBoxTextChange(inputText) {
@@ -27,17 +28,29 @@ class ToDoPage extends React.Component {
         // if (inputText.charcode===13) alert ("Enter Pressed !");
     }
 
-    addToDo(text) {
+    addToDo(text, isDonePrm) {
         // console.log(text);
 
-        const isDone = 1; // by dedault the status is not done..
+        const isDone = (isDonePrm) ? isDonePrm : 1; // by dedault the status is not done..
         // alert (this.inputText);
 
         this.setState({
-            toDoArr: this.state.toDoArr.concat(new ToDoModel(text, isDone))
-
+            toDoArr: this.state.toDoArr.concat(new ToDoModel(text, isDonePrm))
         })
         // console.log(this.state.toDoArr);
+    }
+
+    updateIsDone(isDoneCode) {
+// debugger;        
+        // const isDone = isDoneCode; // by dedault the status is not done..
+        // alert (this.inputText);
+        // alert(this.state.toDoArr );
+        this.setState({
+            // isDone: this.state.toDoArr[1].isDone.concat (isDoneCode)
+            isDone: isDoneCode
+        })
+        console.log(isDoneCode);
+        console.log(this.state.toDoArr);
     }
 
     render() {
@@ -46,7 +59,7 @@ class ToDoPage extends React.Component {
         // const resultStrings = toDoArr.map(toDo => toDoArr.toDoDesc);
         const linesToDo = toDoArr.map(toDoLine =>
             <Col lg={3} md={4} sm={6}>
-                <ToDoLine toDoLine={toDoLine} />
+                <ToDoLine toDoLine={toDoLine} resultIsDone={this.updateIsDone}  />
             </Col>)
 
         // toDoArr.toDoDesc)

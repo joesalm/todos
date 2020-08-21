@@ -12,9 +12,6 @@ class InputBox extends React.Component {
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
-        // this.handleClick = this.handleClick.bind(this);        
-        // this.handleEnterKeyPressed = this.handleEnterKeyPressed.bind(this);
-        // this._handleKeyDown = this._handleKeyDown.bind(this);
     }
 
 

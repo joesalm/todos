@@ -18,18 +18,32 @@ class ToDoLine extends React.Component {
 
         // this.addToDo = this.addToDo.bind(this);
         // this.inBoxTextChange = this.inBoxTextChange.bind(this);
+
+        this.handleChangeIsDoneCheckbox = this.handleChangeIsDoneCheckbox.bind(this);
+    }
+
+
+    handleChangeIsDoneCheckbox(event) {
+        this.setState({
+            isDone: ((event.target.value.isChecked) ? 2 : 1)
+        
+        });
+        // this.props.resultIsDone((event.target.value.isChecked) ? 2 : 1);
+        this.props.resultIsDone(this.isDone);
     }
 
 
     render() {
-        const isChecked = this.props.toDoLine.isDone===2 ? "Checked": "";
-        // const isChecked = "Checked";
+        
+        const {toDoLine, resultIsDone} = this.props;
+        const isChecked = toDoLine.isDone===2 ? "Checked": "";
         return (
             <div className="p-thingToDoSingleLine">
                 {/* <Container>
                     <Row> */}
-
-                        <input type="checkbox" defaultChecked={isChecked} />
+                        <input type="checkbox" defaultChecked={isChecked} 
+                            onChange={this.handleChangeIsDoneCheckbox} 
+                        />
                         {this.props.toDoLine.toDoDesc} 
                     {/* </Row>
                 </Container> */}
