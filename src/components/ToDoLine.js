@@ -24,12 +24,15 @@ class ToDoLine extends React.Component {
 
 
     handleChangeIsDoneCheckbox(event) {
+// debugger;
         this.setState({
-            isDone: ((event.target.value.isChecked) ? 2 : 1)
+            isDone: ((event.target.checked) ? 2 : 1)
         
+        }, () => {
+            this.props.resultIsDone(this.state.isDone);
+            
         });
         // this.props.resultIsDone((event.target.value.isChecked) ? 2 : 1);
-        this.props.resultIsDone(this.isDone);
     }
 
 

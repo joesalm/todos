@@ -13,7 +13,7 @@ class ToDoPage extends React.Component {
 
         this.state = {
             toDoArr: [], // array of Do things objects
-            isDone: 1, // isDone code of toDo array (1=Not done, 2=Done) 
+            // isDone: 1, // isDone code of toDo array (1=Not done, 2=Done) 
             displayStatusCode: 0 // 0=all, 1=Active only, 2=Not Active Only
         }
 
